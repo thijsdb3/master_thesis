@@ -4,7 +4,7 @@ from utils import construct_full_address
 
 def process_tourismflanders(file_path="public.csv"):
     tourismflanders = pd.read_csv(file_path, sep=";")
-
+    print(tourismflanders.columns())
     # Construct full address as one variable
     tourismflanders['full_address'] = tourismflanders.apply(construct_full_address, axis=1)
 

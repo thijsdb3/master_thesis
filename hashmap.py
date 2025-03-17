@@ -1,11 +1,27 @@
+import pandas as pd
 
-import numpy as np
-from geopy.distance import geodesic
-import airbnb_preprocessing as airbnb
-import tourism_flanders_preprocessing as tf
+# will create a test hashmap of size 10 , to be able to test easily and run fast
+# possible to optimize the constant operations by using numpy which uses C under the hood, but you can't avoid the O(NXM) time complexity (maybe possible with K-D tree)
+# iterrows() gives index ,label with index the column name and label the value of the row , but we only care about the values
+def create_test_hashmap(keyDataSet, valueDataSet):
+    keys = keyDataSet.head(10)
+    hashmap = {row["id"]: [] for _, row in keys.iterrows()}
+    for _, key in keys.iterrows():
+        for _, value in valueDataSet.iterrows():
+            if check_in_range(key, value, 150):
+                hashmap[key["id"]].append(value["business_product_id"])
+    return hashmap
 
-tourism_flanders = tf.process_tourismflanders()
-inside_airbnb = airbnb.process_airbnb()
 
-airbnb_coords = inside_airbnb[['latitude', 'longitude']].to_numpy()
 
+# checks if  the key and value are within 150 meters of each other
+# both have lat/long in wsg19884
+def check_in_range(key,value, range):
+    return True
+    # maybe haversin can be used
+
+
+def export_hashmap_to_excel(hashmap, filename="hashmap.xlsx"):
+    hashmap = pd.DataFrame(hashmap.items(), columns=["Key", "Value"])
+    hashmap.to_excel(filename, index=False)
+    print(f"✅ Hashmap exported to {filename}")

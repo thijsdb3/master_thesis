@@ -5,3 +5,14 @@ def preprocess_further(tourismflanders,combinedAirbnb):
     return [tourismflanders,combinedAirbnb]
 
 
+def split(hashmap):
+    missing_locations = {}
+    locations = {}
+    for key, val in hashmap.items():
+        if val == []:
+            missing_locations[key] = val
+        else:
+            locations[key] = val
+
+    return missing_locations, locations
+

@@ -36,7 +36,7 @@ def check_in_range(key,value, max_distance):
     else:
         return False
 
-
+#TODO make this also produce a count column
 def export_hashmap_to_excel(hashmap, filename="hashmap.xlsx"):
     hashmap = pd.DataFrame(hashmap.items(), columns=["Key", "Value"])
     hashmap.to_excel(filename, index=False)

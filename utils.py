@@ -19,20 +19,20 @@ def split(hashmap):
 
 #this is a lot of battling with types xD
 def remove_locations_without_email_match(locations,tourismflanders,combinedAirbnb):
-    keys = locations["Key"]
-    values = locations["Value"]
+    keys = locations["Key"] #airbnb
+    values = locations["Value"] # tourismflanders
     locations = {}
     for index in range(len(keys)):
         new_values = []
         row1 = combinedAirbnb[combinedAirbnb['id'] == keys[index]]
         host_firstname = str(row1['host_name']).split()[1]
-        value_list = ast.literal_eval(values[index])
+        value_list = ast.literal_eval(values[index]) # tourismflandersID
         for x in range(len(value_list)):
             row2 = tourismflanders[tourismflanders["business_product_id"] == value_list[x]]
-            host_email = row2['email']
-            if host_firstname in str(host_email):
+            host_email = str(row2['email']).split()[1]
+            if host_firstname.upper() in host_email.upper():
+                print("this is the airbnb key:", keys[index], "this is the tourismflanders key: ",value_list[x] , "this is the host_firstName:" , host_firstname, "this is the host email:" ,host_email)
                 new_values.append(value_list[x])
-
         locations[keys[index]] = new_values
 
     return locations

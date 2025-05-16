@@ -1,8 +1,8 @@
 
 import pandas as pd
 
-tourismflanders = pd.read_excel("Thesis_Data_Preprocessed.xlsx", sheet_name="TourismFlanders", engine="openpyxl")
-combinedAirbnb = pd.read_excel("Thesis_Data_Preprocessed.xlsx", sheet_name="CombinedListingsInsideAirBNB",
+tourismflanders = pd.read_excel("Final_results.xlsx", sheet_name="TourismFlanders", engine="openpyxl")
+combinedAirbnb = pd.read_excel("Final_results.xlsx", sheet_name="CombinedListingsInsideAirBNB",
                                engine="openpyxl")
 
 # printing the first 10 rows
@@ -12,8 +12,4 @@ print(combinedAirbnb.head(10))
 # printing the column names
 print(tourismflanders.columns)
 print(combinedAirbnb.columns)
-
-
-
-
 

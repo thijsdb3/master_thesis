@@ -1,5 +1,7 @@
 import pandas as pd
+from math import *
 import ast
+
 def preprocess_further(tourismflanders,combinedAirbnb):
     tourismflanders = tourismflanders.drop(["street", "house_number", "box_number", "postal_code", "city_name"], axis=1)
     return [tourismflanders,combinedAirbnb]
@@ -17,7 +19,6 @@ def split(hashmap):
     return missing_locations, locations
 
 
-#this is a lot of battling with types xD
 def remove_locations_without_email_match(locations,tourismflanders,combinedAirbnb):
     keys = locations["Key"] #airbnb
     values = locations["Value"] # tourismflanders
@@ -37,3 +38,13 @@ def remove_locations_without_email_match(locations,tourismflanders,combinedAirbn
 
     return locations
 
+
+
+def export_hashmap_to_excel(hashmap, filename="hashmap.xlsx"):
+    hashmap = pd.DataFrame(hashmap.items(), columns=["Key", "Value"])
+    hashmap.to_excel(filename, index=False)
+    print(f"✅ Hashmap exported to {filename}")
+def export_cap_hashmap_to_excel(hashmap, filename="Testhashmap.xlsx"):
+    hashmap = pd.DataFrame(hashmap)
+    hashmap.to_excel(filename, index=False)
+    print(f"✅ Hashmap exported to {filename}")

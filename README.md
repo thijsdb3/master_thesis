@@ -1,6 +1,5 @@
 # Master's Thesis – Automating the Linking of Touristic Data Using Excel, GIS, and Python
 
-**KU Leuven | Master's Thesis | 2025**
 **Authors:** Peter Carney, Thijs De Bock , Vivienne Chen   
 **Institution:** KU Leuven  
 **Year:** 2025

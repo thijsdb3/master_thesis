@@ -6,7 +6,7 @@
 
 This master's thesis was conducted by a team of three and investigated how data matching techniques can improve the accuracy and reliability of regional tourism statistics.
 
-The rapid growth of platforms such as Airbnb has created large amounts of accommodation data that are not always adequately represented in official tourism statistics. This research addresses that gap by developing a methodology to link accommodation listings from **Inside Airbnb** with official data from **Tourism Flanders**, with a particular focus on identifying short-term rental capacity missing from existing datasets.
+The rapid growth of platforms such as Airbnb has created large amounts of accommodation data that are not always adequately represented in official tourism statistics. This research addresses that gap by developing a methodology to link accommodation listings from **Inside Airbnb** with official data from **Tourism Flanders**
 
 ### Research Question
 
